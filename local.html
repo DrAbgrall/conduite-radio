@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#244c38">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/radio-180.png">
+  <title>Conduite Radio V19 — édition locale</title>
+  <link rel="stylesheet" href="css/local.css?v=19-mobile-1">
+  <script defer src="js/core.js?v=19-pwa-1"></script>
+  <script defer src="js/document-model.js"></script>
+  <script defer src="js/local-store.js"></script>
+  <script defer src="js/local-session.js"></script>
+  <script defer src="js/dialogs.js"></script>
+  <script defer src="js/exports.js"></script>
+  <script defer src="js/visualizations.js"></script>
+  <script defer src="js/local-app.js?v=19-auto-1"></script>
+  <script defer src="js/pwa.js?v=19-auto-1"></script>
+</head>
+<body>
+  <header class="top"><div><h1>Conduite Radio <small>V19 · locale</small></h1><p>Vos conducteurs sur cet appareil</p></div><span id="saveStatus" role="status" aria-live="polite">Ouverture du stockage…</span></header>
+  <section id="installationPanel" class="installationPanel" aria-label="Installer l’application"><img src="icons/radio-192.png" alt="" width="44" height="44"><div><strong>Conduite Radio sur votre appareil</strong><p>Une icône pour ouvrir vos conducteurs, même sans Internet après la première préparation.</p></div><button id="installApp" class="primary">Installer Conduite Radio</button></section>
+  <p id="error" role="alert" hidden></p>
+  <main>
+    <section id="library" aria-labelledby="libraryTitle">
+      <h2 id="libraryTitle">Mes conducteurs</h2>
+      <div class="toolbar"><button id="newDocument">＋ Nouveau conducteur</button><button id="importDocument">Importer un JSON</button></div>
+      <input id="fileInput" type="file" accept=".json,application/json" hidden>
+      <div id="documents" class="documents"></div>
+    </section>
+    <section id="editor" hidden aria-labelledby="editorTitle">
+      <div class="toolbar"><button id="back">← Mes conducteurs</button><h2 id="editorTitle">Conducteur</h2><button id="exportDocument">Exporter JSON</button><button id="exportHtml">HTML</button><button id="exportExcel">Excel</button><button id="printDocument">Imprimer / PDF</button><button id="visualize">Visualiser</button><button id="history">Historique</button><button id="retrySave">Enregistrer</button><button id="reloadDocument">Recharger la copie enregistrée</button></div>
+      <div class="metadata">
+        <label>Émission / Thème<input id="localTheme" type="text" maxlength="1000"></label>
+        <label>Date<input id="localDate" type="date"></label>
+        <label>Heure de départ<input id="localStart" type="time" step="1" required></label>
+        <label class="check"><input id="localTemplate" type="checkbox"> Modèle</label>
+      </div>
+      <div class="toolbar"><button id="addSequence">＋ Séquence</button><button id="addLocalBlock">＋ Bloc</button><strong id="total"></strong></div>
+      <div class="mobileScrollControls"><span>Heure et durée restent visibles · faites défiler les autres colonnes</span><button id="scrollRundownLeft" type="button" aria-label="Voir les colonnes de gauche">←</button><button id="scrollRundownRight" type="button" aria-label="Voir les colonnes de droite">→</button></div>
+      <div id="blockList" class="rundownScroll" role="region" aria-label="Conducteur de l’émission" tabindex="0">
+        <table class="rundownTable"><thead><tr><th scope="col">Heure</th><th scope="col">Type</th><th scope="col">Direct</th><th scope="col">PAD / Enregistré</th><th scope="col">Durée</th><th scope="col">Qui / Bloc</th><th scope="col"><span class="srOnly">Actions</span></th></tr></thead><tbody id="sequences"></tbody><tfoot><tr><td id="end" class="end" colspan="7"></td></tr></tfoot></table>
+      </div>
+    </section>
+  </main>
+  <footer class="localSupport"><a href="./">Version en ligne</a><span id="offlineStatus" role="status">Préparation du mode hors ligne…</span><button id="updateApp" hidden>Mettre à jour</button><details><summary>Stockage et installation</summary><p>Les conducteurs restent sur cet appareil. Exportez régulièrement une copie JSON : effacer les données du navigateur efface aussi l’historique local.</p><button id="installHelp">Installation / hors ligne</button></details></footer>
+  <dialog id="historyDialog" aria-labelledby="historyTitle">
+    <form method="dialog"><button class="close" aria-label="Fermer l’historique">Fermer</button></form>
+    <h2 id="historyTitle">Versions précédentes</h2>
+    <p>Jusqu’à 20 versions. Les sauvegardes automatiques sont regroupées sur deux minutes ; les suppressions et restaurations créent un point de retour.</p>
+    <p id="historyError" role="alert" hidden></p>
+    <div id="versions"></div>
+    <section id="preview" hidden><h3>Aperçu de la version</h3><pre id="previewText"></pre><button id="restoreVersion">Restaurer cette version</button></section>
+  </dialog>
+<dialog id="vizDialog" aria-labelledby="vizTitle"><form method="dialog"><button class="close">Fermer</button></form><h2 id="vizTitle">Visualiser</h2><div class="toolbar"><button id="vizClock">Horloge</button><button id="vizBars">Répartition par type</button></div><div id="vizContent"></div></dialog>
+  <dialog id="installDialog" aria-labelledby="installTitle"><form method="dialog"><button class="close">Fermer</button></form><h2 id="installTitle">Installation et mode hors ligne</h2><p>Attendez le message « Application prête hors ligne » après la première ouverture avec une connexion.</p><p id="installSteps"></p><p>Après installation, ouvrez Conduite Radio depuis son icône. Si vous utilisez le navigateur intégré d’une autre application, ouvrez d’abord cette page dans Safari, Chrome ou Edge.</p><p>Les conducteurs restent dans ce navigateur et à cette adresse. Exportez un JSON pour passer sur un autre appareil. Une première ouverture et l’installation nécessitent un accès au site.</p><p>Si vous aviez déjà des conducteurs dans un autre navigateur, exportez-les en JSON puis importez-les dans l’application installée.</p></dialog>
+  <iframe id="printFrame" title="Version imprimable du conducteur" aria-hidden="true" tabindex="-1"></iframe>
+</body>
+</html>

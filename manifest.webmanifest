@@ -1,0 +1,26 @@
+{
+  "id": "./local.html",
+  "name": "Conduite Radio — locale",
+  "short_name": "Conduite Radio",
+  "lang": "fr",
+  "start_url": "./local.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f6f2",
+  "theme_color": "#244c38",
+  "description": "Conducteurs radio sur votre appareil, avec historique et échange JSON.",
+  "icons": [
+    {
+      "src": "icons/radio-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/radio-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

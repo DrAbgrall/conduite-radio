@@ -1,0 +1,106 @@
+{
+  "format": "conduite-radio",
+  "version": 1,
+  "emission": {
+    "theme": "À vous l’antenne — exemple",
+    "start_time": "17:00:00",
+    "emission_date": null,
+    "is_template": false
+  },
+  "blocks": [
+    {
+      "key": "0",
+      "title": "Intro",
+      "position": 0
+    },
+    {
+      "key": "1",
+      "title": "Invité",
+      "position": 1
+    },
+    {
+      "key": "2",
+      "title": "Moment culture",
+      "position": 2
+    },
+    {
+      "key": "3",
+      "title": "Outro",
+      "position": 3
+    }
+  ],
+  "sequences": [
+    {
+      "position": 0,
+      "type": "Habillage",
+      "direct": "",
+      "recorded": "Jingle fictif",
+      "duration_seconds": 15,
+      "who": "Équipe fictive",
+      "block_key": "0"
+    },
+    {
+      "position": 1,
+      "type": "Direct",
+      "direct": "Bienvenue à l’antenne !",
+      "recorded": "",
+      "duration_seconds": 45,
+      "who": "Équipe fictive",
+      "block_key": "0"
+    },
+    {
+      "position": 2,
+      "type": "Direct",
+      "direct": "Présentation de l’invité·e.",
+      "recorded": "",
+      "duration_seconds": 60,
+      "who": "Équipe fictive",
+      "block_key": "1"
+    },
+    {
+      "position": 3,
+      "type": "Direct",
+      "direct": "Entretien : parcours, projet et découvertes.",
+      "recorded": "",
+      "duration_seconds": 240,
+      "who": "Équipe fictive",
+      "block_key": "1"
+    },
+    {
+      "position": 4,
+      "type": "Direct",
+      "direct": "Une découverte culturelle à partager.",
+      "recorded": "",
+      "duration_seconds": 90,
+      "who": "Équipe fictive",
+      "block_key": "2"
+    },
+    {
+      "position": 5,
+      "type": "PAD",
+      "direct": "",
+      "recorded": "Extrait fictif : aucun fichier audio joint",
+      "duration_seconds": 30,
+      "who": "Équipe fictive",
+      "block_key": "2"
+    },
+    {
+      "position": 6,
+      "type": "Direct",
+      "direct": "Merci et à la semaine prochaine !",
+      "recorded": "",
+      "duration_seconds": 45,
+      "who": "Équipe fictive",
+      "block_key": "3"
+    },
+    {
+      "position": 7,
+      "type": "Habillage",
+      "direct": "",
+      "recorded": "Jingle de fin fictif",
+      "duration_seconds": 15,
+      "who": "Équipe fictive",
+      "block_key": "3"
+    }
+  ]
+}

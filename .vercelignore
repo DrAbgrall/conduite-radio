@@ -1,0 +1,14 @@
+# Sources de recette et données privées non nécessaires au build Vercel
+.test-tools/
+backups/
+tests/
+docs/
+.github/
+.git/
+.vercel/
+dist/
+dist-*/
+config.js
+.env
+.env.*
+.DS_Store

@@ -1,0 +1,13 @@
+/config.js
+.env
+.env.*
+!.env.example
+/dist/
+/dist-*/
+/.vercel/
+/.test-tools/
+/backups/
+.DS_Store
+/tests/output/
+
+/.operator/

@@ -1,0 +1,12 @@
+{
+  "format": "conduite-radio",
+  "version": 1,
+  "emission": {
+    "theme": "TEST JSON — vide",
+    "emission_date": null,
+    "start_time": "23:59:30",
+    "is_template": false
+  },
+  "blocks": [],
+  "sequences": []
+}

@@ -1,0 +1,42 @@
+{
+  "format": "conduite-radio",
+  "version": 1,
+  "emission": {
+    "theme": "TEST JSON — blocs et accents",
+    "emission_date": null,
+    "start_time": "23:59:30",
+    "is_template": false
+  },
+  "blocks": [
+    {
+      "key": "block-1",
+      "title": "Ouverture « radio »",
+      "position": 0
+    },
+    {
+      "key": "block-2",
+      "title": "Bloc vide",
+      "position": 1
+    }
+  ],
+  "sequences": [
+    {
+      "position": 0,
+      "type": "Direct",
+      "direct": "Bonjour & bienvenue\nDeuxième ligne <test>",
+      "recorded": "",
+      "duration_seconds": 30,
+      "who": "Équipe A",
+      "block_key": "block-1"
+    },
+    {
+      "position": 1,
+      "type": "PAD",
+      "direct": "",
+      "recorded": "Reportage « école »",
+      "duration_seconds": 90,
+      "who": "Régie",
+      "block_key": "block-1"
+    }
+  ]
+}

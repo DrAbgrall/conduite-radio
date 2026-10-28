@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conduite radio - Votre organisation</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0"></script>
+<link rel="stylesheet" href="css/styles.css?v=19-mobile-2">
+</head>
+<body><div id="home" class="app" style="display:none"></div><div id="rundownApp" class="app">
+<header><button id="homeBtn">← Accueil</button><h1>Conduite radio <small style="font-size:11px;color:#888;font-weight:500">V19</small></h1>
+<div class="field"><label>Émission / Thème</label><input id="theme" type="text" placeholder="Ex. STOU! — Éducation permanente"></div>
+<div class="field"><label>Date</label><input id="date" type="date"></div>
+<div class="field"><label>Heure de départ</label><input id="start" type="time" step="1" value="17:00:00"></div>
+<button id="reset">Réinitialiser</button>
+</header>
+<div class="collabScrollControls"><span>Heure, type et durée restent visibles</span><button id="collabScrollLeft" aria-label="Voir les colonnes de gauche">←</button><button id="collabScrollRight" aria-label="Voir les colonnes de droite">→</button></div>
+<div id="collabRundownScroll" class="collabRundownScroll" role="region" aria-label="Conducteur de l’émission" tabindex="0"><table><thead><tr><th></th><th>Heure</th><th>Type</th><th>Direct</th><th>PAD / Enregistré</th><th>Durée</th><th class="hide-sm">Qui</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="footer"><button id="add">＋ Ajouter une séquence</button><button id="addBlock">＋ Créer un bloc</button><span class="helpTip" tabindex="0" data-tip="Segment ou chapitre de l’émission" title="Segment ou chapitre de l’émission">i</span>
+<button id="exportBtn">Exporter</button><button id="importNative">Importer</button><button id="visualizeBtn">Visualiser</button><button id="remoteHistory" disabled>Historique</button>
+<span class="hint">Glissez ☰ pour réordonner · enregistrement partagé · accès Internet nécessaire</span></div>
+</div>
+<footer class="appSupport">
+<div class="supportLinks"><a href="local.html">Installer l’application</a><a href="local.html">Travailler hors ligne</a><a id="homeUpdate" href="local.html" hidden title="Ouvrir l’application locale pour appliquer la mise à jour">Mise à jour disponible</a><a href="admin.html">Admin</a><nav id="homeSupportActions" aria-label="Gestion des espaces et des émissions"></nav></div>
+<details class="syncPanel" aria-label="État de sauvegarde"><summary>Enregistrement <span id="syncStatus" role="status">Chargement…</span></summary><div class="syncDetails"><span id="realtimeStatus"></span><span id="backupStatus"></span><div class="syncActions"><button id="retrySync">Réessayer les modifications</button><button id="reloadRemote">Recharger le serveur</button><button id="exportDraft">Exporter la sauvegarde locale</button></div></div></details>
+<div id="supportContact"></div>
+</footer>
+<script src="config.js"></script>
+<script src="js/core.js"></script>
+<script src="js/dialogs.js"></script>
+<script src="js/remote-sync.js"></script>
+<script src="js/document-model.js"></script>
+<script src="js/atomic-document.js?v=19-atomic-1"></script>
+<script src="js/exports.js"></script>
+<script src="js/supabase-repository.js?v=19-atomic-1"></script>
+<script src="js/collaboration-history.js?v=19-history-1"></script>
+<script src="js/trash-dialog.js?v=19-trash-1"></script>
+<script src="js/atomic-app-actions.js?v=19-atomic-1"></script>
+<script src="js/app.js?v=19-mobile-2"></script><script src="js/home-update.js?v=19-auto-1"></script><div id="printSheet"></div>
+</body></html>
